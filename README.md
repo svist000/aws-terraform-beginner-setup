@@ -79,11 +79,32 @@ Delete bucket:
 ```bash
 aws s3 rb s3://your-bucket-name
 ```
+### TROUBLESHOOTING
+If you get permission errors like:
+AccessDenied when creating S3 buckets or IAM users, you need to update your IAM user's permissions.
 
+For S3 bucket creation and management, you may need:
+
+AdministratorAccess (for testing)
+
+Or granular S3 permissions: s3:CreateBucket, s3:ListBucket, s3:GetObject, s3:PutObject, s3:DeleteObject
+
+Test S3 permissions manually:
+
+```bash
+aws s3 mb s3://your-unique-bucket-name
+```
+To delete a bucket and its contents:
+
+```bash
+aws s3 rb s3://your-bucket-name --force
+```
 ## TEMPLATE
 If you are usig VS Code, you can install Hashicorp Terraform extension
 
 ### Basic Terraform commands:
+Using this commands, you can deploy your template.
+
 Initialize Terraform:
 
 ```bash
@@ -108,4 +129,28 @@ Destroy infrastructure when no longer needed:
 
 ```bash
 terraform destroy
+```
+### SECURITY GROUPS & SSH ACCESS
+By default, AWS EC2 instances do not have open inbound ports.
+
+To connect via SSH (port 22):
+
+Go to AWS Console → EC2 → Instances → Select your instance
+
+Scroll to Security groups section → Click the linked security group
+
+Edit Inbound rules → Add rule:
+
+Type: SSH
+
+Protocol: TCP
+
+Port Range: 22
+
+Source: your IP (CIDR format, e.g. 203.0.113.0/32) or anywhere (0.0.0.0/0 for testing)
+
+Save and try SSH connection:
+
+```bash
+ssh -i /path/to/your/key.pem ubuntu@<instance_public_ip>
 ```
