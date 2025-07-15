@@ -14,7 +14,7 @@ This project demonstrates how to provision an EC2 instance and optionally create
    ```bash
    aws --version
    terraform -v
-## 🔧 CONFIGURE
+## ⚙️ CONFIGURE
 1. **Create an IAM user** with Programmatic access in AWS Console.
 
 <img width="1347" height="803" alt="image" src="https://github.com/user-attachments/assets/e9b5e86f-d8e6-4aef-af7e-cae3eb248dba" />
@@ -58,7 +58,7 @@ Enter Access Key ID, Secret Access Key, default region (e.g., eu-central-1), and
 ```bash
 aws sts get-caller-identity
 ```
-## AWS S3 COMMON COMMANDS
+## 🪣 AWS S3 COMMON COMMANDS
 List buckets:
 
 ```bash
@@ -79,7 +79,7 @@ Delete bucket:
 ```bash
 aws s3 rb s3://your-bucket-name
 ```
-### TROUBLESHOOTING
+### 🛠️ TROUBLESHOOTING
 If you get permission errors like:
 AccessDenied when creating S3 buckets or IAM users, you need to update your IAM user's permissions.
 
@@ -99,10 +99,10 @@ To delete a bucket and its contents:
 ```bash
 aws s3 rb s3://your-bucket-name --force
 ```
-## TEMPLATE
+## 📄 Deploying Terraform Code
 If you are usig VS Code, you can install Hashicorp Terraform extension
 
-### Basic Terraform commands:
+### 🔨 Basic Terraform commands:
 Using this commands, you can deploy your template.
 
 Initialize Terraform:
@@ -130,7 +130,7 @@ Destroy infrastructure when no longer needed:
 ```bash
 terraform destroy
 ```
-### SECURITY GROUPS & SSH ACCESS
+### 🔐 SECURITY GROUPS & SSH ACCESS
 By default, AWS EC2 instances do not have open inbound ports.
 
 To connect via SSH (port 22):
@@ -154,3 +154,8 @@ Save and try SSH connection:
 ```bash
 ssh -i /path/to/your/key.pem ubuntu@<instance_public_ip>
 ```
+## 📚 Useful Links
+
+- [Terraform AWS Provider Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+- [Official Terraform Docs](https://developer.hashicorp.com/terraform/docs)
+- [AWS CLI Docs](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
