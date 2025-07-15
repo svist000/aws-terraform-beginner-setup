@@ -58,3 +58,33 @@ Enter Access Key ID, Secret Access Key, default region (e.g., eu-central-1), and
 ```bash
 aws sts get-caller-identity
 ```
+
+## TEMPLATE
+If you are usig VS Code, you can install Hashicorp Terraform extension
+
+### Basic Terraform commands:
+Initialize Terraform:
+
+```bash
+terraform init
+```
+Validate Terraform files syntax:
+
+```bash
+terraform validate
+```
+Preview changes Terraform will apply:
+
+```bash
+terraform plan
+```
+Deploy infrastructure:
+
+```bash
+terraform apply
+```
+Destroy infrastructure when no longer needed:
+
+```bash
+terraform destroy
+```
