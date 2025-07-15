@@ -58,6 +58,27 @@ Enter Access Key ID, Secret Access Key, default region (e.g., eu-central-1), and
 ```bash
 aws sts get-caller-identity
 ```
+## AWS S3 COMMON COMMANDS
+List buckets:
+
+```bash
+aws s3 ls
+```
+Create bucket:
+
+```bash
+aws s3 mb s3://your-bucket-name
+```
+Delete bucket contents:
+
+```bash
+aws s3 rm s3://your-bucket-name --recursive
+```
+Delete bucket:
+
+```bash
+aws s3 rb s3://your-bucket-name
+```
 
 ## TEMPLATE
 If you are usig VS Code, you can install Hashicorp Terraform extension
